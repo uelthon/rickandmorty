@@ -8,6 +8,7 @@ import api from '@/services/api'
 
 export default async function Home ({ params, searchParams }) {
   const data = await api.getAll(searchParams)
+
   return (
     <div className='p-4 w-full flex flex-col justify-start gap-4'>
       <div className='w-full flex justify-center items-center'>
@@ -20,8 +21,9 @@ export default async function Home ({ params, searchParams }) {
           currentParams={searchParams}
         />
       </div>
+      {!data && <p className='text-4xl text-center'>No se encontro resultados</p>}
       <ContainerGallery>
-        {data?.results && data.results.map(e =>
+        {data && data?.results && data.results.map(e =>
           <Card key={e.id} name={e.name} image={e.image} id={e.id} />
         )}
       </ContainerGallery>

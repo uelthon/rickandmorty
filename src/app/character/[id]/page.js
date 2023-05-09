@@ -7,6 +7,7 @@ export default async function Character ({ params }) {
   return (
     <div>
       {data?.id && <Hero image={data.image} name={data.name} />}
+      {!data && <p className='text-4xl text-center'>No se encontro resultados</p>}
     </div>
   )
 }

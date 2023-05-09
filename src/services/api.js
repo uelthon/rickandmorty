@@ -6,7 +6,7 @@ const getAll = async (params) => {
     cache: 'no-store'
   })
   if (!res.ok) {
-    throw new Error('server error')
+    return null
   }
   const data = await res.json()
   return data
@@ -17,7 +17,7 @@ const getOne = async (id) => {
     cache: 'no-store'
   })
   if (!res.ok) {
-    throw new Error('server error')
+    return null
   }
   const data = await res.json()
   return data
